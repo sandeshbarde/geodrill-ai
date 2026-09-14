@@ -2,7 +2,7 @@
 import React from 'react';
 import { useParams } from 'next/navigation';
 import { useDrillStore } from '@/store/useDrillStore';
-import { KG_BASIN_WELLS } from '../nearby-wells/page';
+import { KG_BASIN_WELLS } from '../../nearby-wells/page';
 import { MapPin, AlertTriangle, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 
