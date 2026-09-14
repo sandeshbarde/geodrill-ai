@@ -1,51 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 241, 245, 249;
-  --background-start-rgb: 9, 13, 22;
-  --background-end-rgb: 15, 23, 42;
+  --nwis-bg: #071018;
+  --nwis-surface: #0E1821;
+  --nwis-surface2: #14232E;
+  --nwis-border: #26333F;
+  --nwis-primary: #4DA3FF;
+  --nwis-success: #32D296;
+  --nwis-warning: #F4B942;
+  --nwis-critical: #FF5964;
+  --nwis-text: #EAF4FA;
+  --nwis-muted: #8EA3B3;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background-color: #090D16;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum";
-  overflow-x: hidden;
+html, body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #071018;
+  color: #EAF4FA;
 }
 
-/* Custom scrollbars for industrial density */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Leaflet dark map fix */
+.leaflet-container {
+  background: #071018 !important;
+}
+.leaflet-tile-pane {
+  filter: brightness(0.9) saturate(0.8);
 }
 
-::-webkit-scrollbar-track {
-  background: #090D16;
+/* No scrollbar utility */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1E293B;
-  border-radius: 3px;
+/* Custom scrollbar for panels */
+.nwis-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.nwis-scroll::-webkit-scrollbar-track {
+  background: #0E1821;
+}
+.nwis-scroll::-webkit-scrollbar-thumb {
+  background: #26333F;
+  border-radius: 2px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+/* Selection color */
+::selection {
+  background-color: rgba(77, 163, 255, 0.25);
+  color: #EAF4FA;
 }
 
-/* Pulse effects for live 10Hz indicator */
-@keyframes pulse-live {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
   }
-  50% {
-    opacity: 0.4;
-    transform: scale(0.92);
+  .font-tabular {
+    font-variant-numeric: tabular-nums;
   }
-}
-
-.animate-pulse-live {
-  animation: pulse-live 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
