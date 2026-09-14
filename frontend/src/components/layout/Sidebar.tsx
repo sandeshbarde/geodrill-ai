@@ -88,7 +88,7 @@ export const Sidebar: React.FC = () => {
 
       {/* Nav Items */}
       <nav className="flex-1 overflow-y-auto py-2 no-scrollbar">
-        {(NAV_ITEMS as NavItem[]).map((item, i) => {
+        {(NAV_ITEMS as unknown as NavItem[]).map((item, i) => {
           if (isSection(item)) {
             if (collapsed) return null;
             return (
